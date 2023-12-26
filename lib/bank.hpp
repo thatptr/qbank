@@ -3,6 +3,7 @@
 #include <string>
 #include <variant>
 #include <vector>
+#include <cmath>
 
 class bank {
 private:
@@ -11,7 +12,6 @@ private:
   int available_capital;
 
   // Loans
-  float loanable_capital;
   float interest_rate;
 
   // Base interest rate
@@ -21,7 +21,7 @@ private:
   std::vector<int> customer_ids;
   
 public:
-  bank(std::string name, int capital, float loan_capital_percent,
+  bank(std::string name, int capital, 
        float interest_rate) {
     this->name = name;
     this->available_capital = capital;
@@ -36,13 +36,7 @@ public:
       this->interest_rate = base_interest_rate;
     }
 
-    // Validation for loan_capital_percent
-    if (loan_capital_percent <= 0) {
-      loan_capital_percent = 1;
-    }
-
-    this->loanable_capital = (loan_capital_percent * available_capital);
-  }
+      }
 
   // Setters
   void add_account(int id) {
@@ -52,7 +46,7 @@ public:
   // Getters
   std::string get_name() { return this->name; }
 
-  float get_loanable_capital() { return this->loanable_capital; }
-
   float get_interest_rate() { return this->interest_rate; }
+
+  std::vector<int> get_customer_ids() { return this->customer_ids; }
 };
