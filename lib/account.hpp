@@ -24,7 +24,8 @@ public:
   account(const std::string &name, bank &linked_bank)
       : name(name), balance(0), id(rand_int()), linked_bank(&linked_bank) {}
 
-  // Deposits amount from account, return account balance or an exception for an error
+  // Deposits amount from account, return account balance or an exception for an
+  // error
   int deposit(int amount) {
     if (amount <= 0)
       throw std::invalid_argument("Amount must be greater than 0");
@@ -34,7 +35,8 @@ public:
     return this->balance;
   }
 
-  // Withdraws amount from account, returns account balance or an exception for an error
+  // Withdraws amount from account, returns account balance or an exception for
+  // an error
   int withdraw(int amount) {
     if (amount <= 0 || balance <= 0 || balance < amount)
       throw std::invalid_argument("Amount must be greater than 0");
@@ -47,7 +49,5 @@ public:
   }
 
   // Gets balance
-  int get_balance() {
-    return this->balance;
-  }
+  int get_balance() { return this->balance; }
 };

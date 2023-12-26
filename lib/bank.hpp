@@ -1,9 +1,9 @@
 #pragma once
 
+#include <cmath>
 #include <string>
 #include <variant>
 #include <vector>
-#include <cmath>
 
 class bank {
 private:
@@ -19,10 +19,9 @@ private:
 
   // Bank customers
   std::vector<int> customer_ids;
-  
+
 public:
-  bank(std::string name, int capital, 
-       float interest_rate) {
+  bank(std::string name, int capital, float interest_rate) {
     this->name = name;
     this->available_capital = capital;
     this->interest_rate = interest_rate;
@@ -35,13 +34,10 @@ public:
     if (this->interest_rate < base_interest_rate) {
       this->interest_rate = base_interest_rate;
     }
-
-      }
+  }
 
   // Setters
-  void add_account(int id) {
-    customer_ids.push_back(id);
-  }
+  void add_account(int id) { customer_ids.push_back(id); }
 
   // Getters
   std::string get_name() { return this->name; }
