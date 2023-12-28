@@ -41,7 +41,9 @@ public:
     if (amount <= 0 || balance <= 0 || balance < amount)
       throw std::invalid_argument("Amount must be greater than 0");
 
-    int withdraw_balance = this->balance - amount;
+    int interest =
+        static_cast<int>(amount * this->linked_bank->get_interest_rate());
+    int withdraw_balance = this->balance - (amount + interest);
 
     this->balance = withdraw_balance;
 

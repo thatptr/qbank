@@ -21,10 +21,8 @@ private:
   std::vector<int> customer_ids;
 
 public:
-  bank(std::string name, int capital, float interest_rate) {
-    this->name = name;
-    this->available_capital = capital;
-    this->interest_rate = interest_rate;
+  bank(std::string name, int capital, float interest_rate)
+      : name(name), available_capital(capital), interest_rate(interest_rate) {
 
     // Validation
     if (this->available_capital > (1e8) || this->available_capital >= 0) {

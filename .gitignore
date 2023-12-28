@@ -1,4 +1,6 @@
+*.gch
 bin/unittest
 build/account_test.o
 build/main.o
 .vscode
+src/a.out
