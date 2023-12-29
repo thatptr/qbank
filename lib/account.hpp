@@ -42,7 +42,7 @@ public:
       throw std::invalid_argument("Amount must be greater than 0");
 
     int interest =
-        static_cast<int>(amount * this->linked_bank->get_interest_rate());
+        static_cast<int>(amount * this->linked_bank->get_deposit_charge());
     int withdraw_balance = this->balance - (amount + interest);
 
     this->balance = withdraw_balance;
